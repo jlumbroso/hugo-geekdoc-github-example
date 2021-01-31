@@ -1,3 +1,3 @@
-[submodule "themes/noteworthy"]
-	path = themes/noteworthy
-	url = https://github.com/kimcc/hugo-theme-noteworthy/
+[submodule "themes/hugo-geekdoc"]
+	path = themes/hugo-geekdoc
+	url = https://github.com/thegeeklab/hugo-geekdoc/

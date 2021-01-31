@@ -1,0 +1,34 @@
+# See https://geekdocs.de/usage/configuration/
+# for more information on how to configure this file
+
+---
+baseURL: https://jlumbroso.github.io/hugo-geekdoc-github-example
+title: Hugo Geekdoc Example
+theme: hugo-geekdoc
+pygmentsUseClasses: true
+pygmentsCodeFences: true
+timeout: 180000
+
+# Geekdoc configuration
+disablePathToLower: true
+enableGitInfo: true
+
+# Needed for mermaid shortcodes
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 1
+    endLevel: 9
+
+params:
+#  geekdocMenuBundle: true
+  geekdocToC: 3
+
+  geekdocRepo: https://jlumbroso.github.io/hugo-geekdoc-github-example
+  geekdocEditPath: edit/master/content
+
+  geekdocSearch: true
+  geekdocSearchShowParent: true
+
