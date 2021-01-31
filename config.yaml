@@ -26,7 +26,7 @@ params:
 #  geekdocMenuBundle: true
   geekdocToC: 3
 
-  geekdocRepo: https://jlumbroso.github.io/hugo-geekdoc-github-example
+  geekdocRepo: https://github.com/jlumbroso/hugo-geekdoc-github-example
   geekdocEditPath: edit/master/content
 
   geekdocSearch: true
