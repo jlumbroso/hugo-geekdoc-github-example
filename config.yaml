@@ -27,7 +27,7 @@ params:
   geekdocToC: 3
 
   geekdocRepo: https://github.com/jlumbroso/hugo-geekdoc-github-example
-  geekdocEditPath: edit/master/content
+  geekdocEditPath: edit/main/content
 
   geekdocSearch: true
   geekdocSearchShowParent: true
