@@ -1,43 +1,59 @@
-name: GitHub Pages Build
+name: 🏗️ Build and Deploy GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - main # Set a branch to deploy
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-      
-      - name: Setup Node.js to build theme
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      pull-requests: write
+      repository-projects: write
 
+    steps:
+      - name: 🔄 Check Out Source Repository
+        uses: actions/checkout@v4.1.1
+        with:
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+
+      - name: 🛠️ Initialize Hugo Environment
+        uses: peaceiris/actions-hugo@v2.6.0
+        with:
+          hugo-version: "0.124.1"
+          extended: true
+
+      - name: Setup Node.js to build theme
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      
       - name: Build Geekdoc theme (1/2)
         working-directory: ./themes/hugo-geekdoc
         run: npm install
-
+  
       - name: Build Geekdoc theme (2/2)
         working-directory: ./themes/hugo-geekdoc
         run: gulp
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.80.0"
-          extended: true
+      - name: 🏗️ Compile Hugo Static Files
+        run: hugo -D --gc --minify
 
-      - name: Build website
-        run: hugo --minify
+      - name: 🔐 Secure Content with Encryption
+        run: curl -L -o hugo-encrypt "https://github.com/Izumiko/hugo-encrypt/releases/download/v0.1.0/hugo-encrypt-linux-64" && chmod 755 hugo-encrypt && ./hugo-encrypt
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: 🚀 Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          ## NOTE: uncomment below if using a custom domain
+          ## cname: mydomain.com
