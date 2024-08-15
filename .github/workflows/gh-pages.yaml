@@ -24,25 +24,27 @@ jobs:
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: 🛠️ Initialize Hugo Environment
-        uses: peaceiris/actions-hugo@v2.6.0
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "0.124.1"
           extended: true
 
-      - name: Setup Node.js to build theme
+      - name: 🌐 Configure Node.js Environment
         uses: actions/setup-node@v4
         with:
           node-version: 20
       
-      - name: Build Geekdoc theme (1/2)
+      - name: "🛠️ Build Geekdoc Theme (Step 1: Setup Packages)"
         working-directory: ./themes/hugo-geekdoc
         run: npm install
   
-      - name: Build Geekdoc theme (2/2)
+      - name: "🏗️ Build Geekdoc Theme (Step 2: Run Gulp to Minify Template)"
         working-directory: ./themes/hugo-geekdoc
-        run: gulp
+        run: |
+          npm install
+          gulp
 
-      - name: 🏗️ Compile Hugo Static Files
+      - name: 📦 Generate Hugo Static Files
         run: hugo -D --gc --minify
 
       - name: 🔐 Secure Content with Encryption
