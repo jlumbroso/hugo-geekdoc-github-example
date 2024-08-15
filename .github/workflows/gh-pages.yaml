@@ -38,11 +38,9 @@ jobs:
         working-directory: ./themes/hugo-geekdoc
         run: npm install
   
-      - name: "🏗️ Build Geekdoc Theme (Step 2: Run Gulp to Minify Template)"
+      - name: "🏗️ Build Geekdoc Theme (Step 2: Build Template)"
         working-directory: ./themes/hugo-geekdoc
-        run: |
-          npm install gulp
-          gulp
+        run: npm run build
 
       - name: 📦 Generate Hugo Static Files
         run: hugo -D --gc --minify
