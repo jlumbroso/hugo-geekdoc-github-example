@@ -1,6 +1,6 @@
 ---
-baseURL: https://geekdocs.de/
-title: Geekdocs
+baseURL: https://jlumbroso.github.io/hugo-geekdoc-github-example
+title: Hugo Geekdoc Example
 theme: hugo-geekdoc
 
 pygmentsUseClasses: true
@@ -42,3 +42,4 @@ security:
   exec:
     allow:
       - "^asciidoctor$"
+      - "^git$"
