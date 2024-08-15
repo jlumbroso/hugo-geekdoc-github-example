@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /categories/*
 Disallow: /tags/*
-Sitemap: https://geekdocs.de/sitemap.xml
+
+Sitemap: https://jlumbroso.github.io/hugo-geekdoc-github-example/sitemap.xml
