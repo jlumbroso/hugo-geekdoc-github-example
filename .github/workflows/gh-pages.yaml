@@ -26,7 +26,7 @@ jobs:
       - name: 🛠️ Initialize Hugo Environment
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.124.1"
+          hugo-version: "0.132.0"
           extended: true
 
       - name: 🌐 Configure Node.js Environment
@@ -41,7 +41,7 @@ jobs:
       - name: "🏗️ Build Geekdoc Theme (Step 2: Run Gulp to Minify Template)"
         working-directory: ./themes/hugo-geekdoc
         run: |
-          npm install
+          npm install gulp
           gulp
 
       - name: 📦 Generate Hugo Static Files
