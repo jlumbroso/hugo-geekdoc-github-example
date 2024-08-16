@@ -9,8 +9,8 @@ images:
 geekdocToC: 3
 geekdocTagsToMenu: true
 
-geekdocRepo: https://github.com/thegeeklab/hugo-geekdoc
-geekdocEditPath: edit/main/exampleSite
+geekdocRepo: https://github.com/jlumbroso/hugo-geekdoc-github-example
+geekdocEditPath: edit/main/content
 
 geekdocSearch: true
 geekdocSearchShowParent: true

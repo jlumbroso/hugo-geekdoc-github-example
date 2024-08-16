@@ -5,6 +5,9 @@
 .DS_Store
 
 ### Hugo ###
+# Hugo lock
+.hugo_build.lock
+
 # Generated files by hugo
 /public/
 /resources/_gen/
